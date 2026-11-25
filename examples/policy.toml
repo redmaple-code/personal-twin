@@ -1,0 +1,44 @@
+# Example policy file.
+# Copy to %APPDATA%\twin\policy.toml (Windows) or ~/.config/twin/policy.toml.
+# Every key is optional; the values below are the defaults.
+
+[vault]
+# Relative paths are resolved against the data dir (%LOCALAPPDATA%\twin or
+# ~/.local/share/twin). An absolute path is used as-is.
+path = "secrets.kdbx"
+
+[backup]
+dir = "backups"
+
+[security]
+# Leave false unless a human needs `twin reveal` in a terminal.
+allow_reveal = false
+
+# Seconds an `twin unlock` session stays valid.
+session_ttl = 900
+
+# Reading the master password from TWIN_PASSWORD. Off: environments leak.
+allow_env_password = false
+
+# Allow `twin inject --env NAME`. stdin remains the default channel.
+allow_env_inject = true
+
+# Refuse reveal when TWIN_AGENT is set. Set TWIN_AGENT=1 in agent harnesses.
+block_agents = true
+
+# Wrong master-password attempts accepted by `twin form` before it shuts down.
+form_max_attempts = 5
+
+[audit]
+# Default scan roots for `twin audit` (directories).
+roots = []
+
+# Default detector file for `twin audit`. One value per line, or
+# "label<TAB>value". Prefer a file with 0600 permissions.
+detectors = ""
+
+# Where to write the JSON report. Empty means "do not write a report".
+report = ""
+
+# Files larger than this are skipped.
+max_file_bytes = 5242880

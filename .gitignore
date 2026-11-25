@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Vault material — never commit these
+*.kdbx
+*.kdbx.*
+*.key
+*.keyx
+autounlock.bin
+session.json
+*.tar.enc
+
+# Local output
+backups/
+*.local.toml
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
